@@ -1,0 +1,646 @@
+body {
+    margin: 0px;
+
+    font-family: 'Roboto', sans-serif;
+
+    zoom: 1.5;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #222222;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #ffffff;
+    }
+}
+
+/*ul {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+
+    padding-left: 5px;
+    margin-left: 15px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    padding-bottom: 1px;
+}
+
+.root {
+    user-select: none;
+
+    background-color: #fdd73a;
+    margin-left: 20px;
+}
+
+.branch {
+    user-select: none;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: height 0.3s ease-in-out;
+    overflow: hidden;
+
+    margin-top: 5px;
+}
+
+.branch.toggled {
+height: 20px;
+    overflow: hidden;
+}
+
+.root.toggled {
+    height: 20px;
+    overflow: hidden;
+}
+
+.toggler {
+    margin-right: 4px;
+    transition: transform 0.3s ease-in-out;
+
+    margin-top: 1px;
+}
+
+.toggler.toggle {
+    transform: rotate(-90deg);
+}
+
+#damn {
+    background-color: #ffffff;
+}
+*/
+
+:root {
+    --color1: #EAD31D;
+    --color2: rgba(0, 0, 0, 0.15);
+
+    --uicolor1: #000000;
+    --uicolor2: #000000;
+}
+
+#title {
+    height: 24px;
+    left: 10px;
+    right: 0px;
+    top: 10px;
+
+    width: 100%;
+
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 4px 4px 4px 24px;
+    gap: 4px;
+
+    border-radius: 4px 0px 0px 4px;
+
+    background-color: var(--color1);
+    box-sizing: border-box;
+
+    display: flex;
+}
+
+.symbol {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+
+    background-color: var(--color2);
+    fill: var(--uicolor2);
+
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    display: flex;
+}
+
+.symbol.invert {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+
+    background-color: var(--color1);
+    fill: var(--uicolor1);
+
+    border-radius: 4px;
+}
+
+/* end */
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    gap: 10px;
+
+    width: auto;
+    height: 16px;
+    left: 0px;
+    top: 0px;
+
+    background: var(--color2);
+    color: var(--uicolor2);
+    border-radius: 4px;
+
+    box-sizing: border-box;
+}
+
+.box.invert {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    gap: 10px;
+
+    width: auto;
+    height: 16px;
+    left: 0px;
+    top: 0px;
+
+    background: var(--color1);
+    color: var(--uicolor1);
+    border-radius: 4px;
+
+    box-sizing: border-box;
+}
+
+.transparent-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    gap: 10px;
+
+    width: auto;
+    height: 16px;
+    left: 0px;
+    top: 0px;
+
+    color: var(--uicolor1);
+    border-radius: 4px;
+
+    box-sizing: border-box;
+}
+
+.transparent-box.invert {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    gap: 10px;
+
+    width: auto;
+    height: 16px;
+    left: 0px;
+    top: 0px;
+    color: var(--uicolor2);
+    border-radius: 4px;
+
+    box-sizing: border-box;
+}
+
+.text-box {
+    height: 12px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    min-width: 16px;
+
+    /* Text Color 1 */
+
+    color: var(--uicolor2);
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.editable-box {
+    height: 12px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    /* Text Color 1 */
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+
+
+.buttonsorsomething {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+
+    left: 0px;
+    right: 0px;
+    height: 16px;
+
+    display: flex;
+    flex: 0px;
+}
+
+.button {
+    box-sizing: border-box;
+
+    width: auto;
+    height: 16px;
+
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+
+    border-width: 0px;
+
+    font-family: 'Consolas', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    align-items: center;
+    text-align: center;
+
+    color: var(--uicolor2);
+
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.button:hover:active {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.thingy {
+    height: 16px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 2;
+    align-self: stretch;
+    flex-grow: 1;
+}
+
+.rootObject {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    width: 100%;
+
+    background: #EAD31D;
+    border-radius: 4px 0px 0px 4px;
+    flex: 0px;
+
+    box-sizing: border-box;
+}
+
+.rootObject.hide {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    width: 100%;
+
+    background: #EAD31D;
+    border-radius: 4px 0px 0px 4px;
+    flex: 0px;
+
+    min-height: 24px;
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+#everything {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0px 10px 10px;
+    gap: 10px;
+}
+
+.titlethingyidkwhattocall {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 4px;
+    gap: 4px;
+
+    height: 24px;
+
+    box-sizing: border-box;
+}
+
+.variablethingyidkwhattocall {
+    clip: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 4px 4px 4px 24px;
+    gap: 4px;
+
+    height: 24px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+}
+
+.toggler {
+    fill: var(--uicolor1);
+    width: 16px;
+    height: 16px;
+}
+
+.toggler.active {
+    fill: var(--color1);
+    transform: rotate(-90deg);
+}
+
+.branch {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 0px 2px 20px;
+    gap: 10px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    box-sizing: border-box;
+}
+
+.branchObject {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    width: 100%;
+
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px 0px 0px 4px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+
+    box-sizing: border-box;
+}
+
+.Object {
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px 0px 0px 4px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.Object.hide {
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px 0px 0px 4px;
+
+    /* Inside auto layout */
+
+    height: 24px;
+    min-height: 24px;
+    overflow: hidden;
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.Object.invert {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    background: var(--color1);
+    border-radius: 4px 0px 0px 4px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.valueNumber {
+    clip: rect(1, 1, 1, 1);
+    background: var(--color2);
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+
+    color: var(--uicolor2);
+
+    box-sizing: border-box;
+    position: inherit;
+
+    padding-left: 4px;
+    padding-right: 4px;
+    right: 0px;
+
+    height: 16px;
+    width: auto;
+    min-width: 16px;
+    max-width: 100px;
+
+    font-family: 'Consolas';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+
+    display: flex;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    align-items: center;
+    text-align: center;
+}
+
+.valueNumber.invert {
+    clip: rect(1, 1, 1, 1);
+    background: var(--color1);
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+
+    color: var(--uicolor1);
+
+    box-sizing: border-box;
+    position: inherit;
+
+    padding-left: 4px;
+    padding-right: 4px;
+    right: 0px;
+
+    height: 16px;
+    width: auto;
+    min-width: 16px;
+
+    font-family: 'Consolas';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+
+    display: flex;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    align-items: center;
+    text-align: center;
+}
+
+.valueString {
+    clip: rect(1, 1, 1, 1);
+    background: var(--color2);
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+
+    color: var(--uicolor2);
+
+    box-sizing: border-box;
+    position: inherit;
+
+    padding-left: 4px;
+    padding-right: 4px;
+    right: 0px;
+
+    height: 16px;
+    width: auto;
+    min-width: 16px;
+
+    font-family: 'Consolas';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+
+    display: flex;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    align-items: center;
+    text-align: center;
+}
+
+.valueString.invert {
+    clip: rect(1, 1, 1, 1);
+    background: var(--color1);
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+
+    color: var(--uicolor1);
+
+    box-sizing: border-box;
+    position: inherit;
+
+    padding-left: 4px;
+    padding-right: 4px;
+    right: 0px;
+
+    height: 16px;
+    width: auto;
+    min-width: 16px;
+
+    font-family: 'Consolas';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+
+    display: flex;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    align-items: center;
+    text-align: center;
+}
+
+.valueString::before {
+    content: '"'
+}
+
+.valueString::after {
+    content: '"'
+}

@@ -2,15 +2,81 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="style.css">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
   <title>JSONViewer - AlaTomKing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-  <ul>
-    <li>
-      <p>pie</p>
-    </li>
-  </ul>
+  <!--<ul class="root">
+    <svg class="toggler" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M5.16159 11C5.53422 11.6667 6.46578 11.6667 6.83841 11L11.8689 2C12.2415 1.33333 11.7757 0.5 11.0304 0.5H0.969551C0.2243 0.5 -0.241481 1.33333 0.131144 2L5.16159 11Z"
+        fill="black" />
+    </svg>
+    pie
+    <ul class="branch">
+      pie
+      <ul class="branch">
+        pie
+      </ul>
+    </ul>
+  </ul>-->
+
+  <div id="everything">
+    <div id="title">
+      <img class="symbol" src="value/string.svg" />
+      <img class="symbol" src="value/number.svg" />
+      <img class="symbol" src="value/object.svg" />
+      <img class="symbol" src="value/array.svg" />
+      <img class="symbol" src="value/boolean.svg" />
+      <img class="symbol" src="value/null.svg" />
+      <div class="box">
+        <span class="text-box">JSONViewer [Alpha]</span>
+      </div>
+      <div class="buttonsorsomething">
+        <button class="button" onclick="ImportFile()">
+          Import
+        </button>
+        <button class="button">
+          Export
+        </button>
+      </div>
+    </div>
+    <div class="rootObject">
+      <div class="titlethingyidkwhattocall">
+        <img class="toggler" src="arrow.svg">
+        <div class="symbol">
+          <span class="symbol-object">
+        </div>
+        <div class="box">
+          <span class="editable-box" contenteditable="true" spellcheck="false">example.json</span>
+        </div>
+      </div>
+      <div class="branch">
+        <div class="Object">
+          <div class="variablethingyidkwhattocall">
+            <div class="symbol">
+              <span class="symbol-number">
+            </div>
+            <div class="box">
+              <span class="editable-box" contenteditable="true" spellcheck="false">example.json</span>
+            </div>
+            <div class="buttonsorsomething">
+              <span class="valueString" contenteditable="true" wrap="off" spellcheck="false">ff</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
