@@ -1,0 +1,341 @@
+{
+    "type": "FeatureCollection",
+    "metadata": {
+        "generated": 1654988370000,
+        "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson",
+        "title": "USGS All Earthquakes, Past Hour",
+        "status": 200,
+        "api": "1.10.3",
+        "count": 8
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 0.36,
+                "place": "7km W of Cobb, CA",
+                "time": 1654988208130,
+                "updated": 1654988305713,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc73744191",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/nc73744191.geojson",
+                "felt": null,
+                "cdi": null,
+                "mmi": null,
+                "alert": null,
+                "status": "automatic",
+                "tsunami": 0,
+                "sig": 2,
+                "net": "nc",
+                "code": "73744191",
+                "ids": ",nc73744191,",
+                "sources": ",nc,",
+                "types": ",nearby-cities,origin,phase-data,",
+                "nst": 7,
+                "dmin": 0.009267,
+                "rms": 0.01,
+                "gap": 92,
+                "magType": "md",
+                "type": "earthquake",
+                "title": "M 0.4 - 7km W of Cobb, CA"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.7996674,
+                    38.8326683,
+                    1.13
+                ]
+            },
+            "id": "nc73744191"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 0.85,
+                "place": "7km W of Cobb, CA",
+                "time": 1654988201190,
+                "updated": 1654988295736,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc73744186",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/nc73744186.geojson",
+                "felt": null,
+                "cdi": null,
+                "mmi": null,
+                "alert": null,
+                "status": "automatic",
+                "tsunami": 0,
+                "sig": 11,
+                "net": "nc",
+                "code": "73744186",
+                "ids": ",nc73744186,",
+                "sources": ",nc,",
+                "types": ",nearby-cities,origin,phase-data,",
+                "nst": 8,
+                "dmin": 0.008462,
+                "rms": 0.01,
+                "gap": 127,
+                "magType": "md",
+                "type": "earthquake",
+                "title": "M 0.9 - 7km W of Cobb, CA"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.7976685,
+                    38.8321648,
+                    1.26
+                ]
+            },
+            "id": "nc73744186"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 1.2,
+                "place": "11 km NW of Two Rivers, Alaska",
+                "time": 1654988092825,
+                "updated": 1654988221054,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ak0227gahg1u",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ak0227gahg1u.geojson",
+                "felt": null,
+                "cdi": null,
+                "mmi": null,
+                "alert": null,
+                "status": "automatic",
+                "tsunami": 0,
+                "sig": 22,
+                "net": "ak",
+                "code": "0227gahg1u",
+                "ids": ",ak0227gahg1u,",
+                "sources": ",ak,",
+                "types": ",origin,phase-data,",
+                "nst": null,
+                "dmin": null,
+                "rms": 0.27,
+                "gap": null,
+                "magType": "ml",
+                "type": "earthquake",
+                "title": "M 1.2 - 11 km NW of Two Rivers, Alaska"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -147.2116,
+                    64.9452,
+                    10
+                ]
+            },
+            "id": "ak0227gahg1u"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 2.6,
+                "place": "13km SE of Mammoth Lakes, CA",
+                "time": 1654987617370,
+                "updated": 1654987990774,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc73744171",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/nc73744171.geojson",
+                "felt": null,
+                "cdi": null,
+                "mmi": null,
+                "alert": null,
+                "status": "automatic",
+                "tsunami": 0,
+                "sig": 104,
+                "net": "nc",
+                "code": "73744171",
+                "ids": ",nc73744171,",
+                "sources": ",nc,",
+                "types": ",focal-mechanism,nearby-cities,origin,phase-data,scitech-link,",
+                "nst": 28,
+                "dmin": 0.0366,
+                "rms": 0.03,
+                "gap": 99,
+                "magType": "md",
+                "type": "earthquake",
+                "title": "M 2.6 - 13km SE of Mammoth Lakes, CA"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -118.8613358,
+                    37.5638351,
+                    3.68
+                ]
+            },
+            "id": "nc73744171"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 1.1,
+                "place": "16 km W of Ninilchik, Alaska",
+                "time": 1654986936248,
+                "updated": 1654987097986,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ak0227gadc60",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ak0227gadc60.geojson",
+                "felt": null,
+                "cdi": null,
+                "mmi": null,
+                "alert": null,
+                "status": "automatic",
+                "tsunami": 0,
+                "sig": 19,
+                "net": "ak",
+                "code": "0227gadc60",
+                "ids": ",ak0227gadc60,",
+                "sources": ",ak,",
+                "types": ",origin,phase-data,",
+                "nst": null,
+                "dmin": null,
+                "rms": 0.45,
+                "gap": null,
+                "magType": "ml",
+                "type": "earthquake",
+                "title": "M 1.1 - 16 km W of Ninilchik, Alaska"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -151.9652,
+                    60.0411,
+                    67.1
+                ]
+            },
+            "id": "ak0227gadc60"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 2.7,
+                "place": "136 km SE of McCarthy, Alaska",
+                "time": 1654985986716,
+                "updated": 1654986498040,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ak0227ga9xin",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ak0227ga9xin.geojson",
+                "felt": null,
+                "cdi": null,
+                "mmi": null,
+                "alert": null,
+                "status": "automatic",
+                "tsunami": 0,
+                "sig": 112,
+                "net": "ak",
+                "code": "0227ga9xin",
+                "ids": ",us7000hgt6,ak0227ga9xin,",
+                "sources": ",us,ak,",
+                "types": ",origin,phase-data,",
+                "nst": null,
+                "dmin": null,
+                "rms": 0.8,
+                "gap": null,
+                "magType": "ml",
+                "type": "earthquake",
+                "title": "M 2.7 - 136 km SE of McCarthy, Alaska"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -141.2295,
+                    60.5231,
+                    0
+                ]
+            },
+            "id": "ak0227ga9xin"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 0.8,
+                "place": "16 km ESE of Tanana, Alaska",
+                "time": 1654985906099,
+                "updated": 1654986014994,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ak0227ga9o7l",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ak0227ga9o7l.geojson",
+                "felt": null,
+                "cdi": null,
+                "mmi": null,
+                "alert": null,
+                "status": "automatic",
+                "tsunami": 0,
+                "sig": 10,
+                "net": "ak",
+                "code": "0227ga9o7l",
+                "ids": ",ak0227ga9o7l,",
+                "sources": ",ak,",
+                "types": ",origin,phase-data,",
+                "nst": null,
+                "dmin": null,
+                "rms": 0.78,
+                "gap": null,
+                "magType": "ml",
+                "type": "earthquake",
+                "title": "M 0.8 - 16 km ESE of Tanana, Alaska"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -151.7695,
+                    65.1104,
+                    7.2
+                ]
+            },
+            "id": "ak0227ga9o7l"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 2.3,
+                "place": "4 km ESE of Maria Antonia, Puerto Rico",
+                "time": 1654985886130,
+                "updated": 1654987472080,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/pr71353603",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/pr71353603.geojson",
+                "felt": null,
+                "cdi": null,
+                "mmi": null,
+                "alert": null,
+                "status": "reviewed",
+                "tsunami": 0,
+                "sig": 81,
+                "net": "pr",
+                "code": "71353603",
+                "ids": ",pr71353603,",
+                "sources": ",pr,",
+                "types": ",origin,phase-data,",
+                "nst": 6,
+                "dmin": null,
+                "rms": 0.16,
+                "gap": 207,
+                "magType": "md",
+                "type": "earthquake",
+                "title": "M 2.3 - 4 km ESE of Maria Antonia, Puerto Rico"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -66.8541666666667,
+                    17.9616666666667,
+                    11.14
+                ]
+            },
+            "id": "pr71353603"
+        }
+    ],
+    "bbox": [
+        -151.9652,
+        17.961666666667,
+        0,
+        -66.854166666667,
+        65.1104,
+        67.1
+    ]
+}

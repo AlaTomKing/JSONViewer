@@ -87,8 +87,8 @@ height: 20px;
 */
 
 :root {
-    --color1: #EAD31D;
-    --color2: rgba(0, 0, 0, 0.15);
+    --color1: #f7df1e;
+    --color2: #dbc619;
 
     --uicolor1: #000000;
     --uicolor2: #000000;
@@ -268,7 +268,9 @@ height: 20px;
     flex-grow: 0;
 }
 
-
+object:hover {
+    fill: white
+}
 
 .buttonsorsomething {
     flex-direction: row;
@@ -290,7 +292,7 @@ height: 20px;
     width: auto;
     height: 16px;
 
-    background: rgba(0, 0, 0, 0.15);
+    background: var(--color2);
     box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.5);
     border-radius: 4px;
 
@@ -310,8 +312,57 @@ height: 20px;
     padding-right: 4px;
 }
 
+.button-boolean {
+    box-sizing: border-box;
+
+    width: 16px;
+    height: 16px;
+
+    background: var(--color2);
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+
+    border-width: 0px;
+
+    font-family: 'Consolas', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    align-items: center;
+    text-align: center;
+
+    color: var(--uicolor2);
+
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.button-boolean.invert {
+    background: var(--color2);
+    box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+
+}
+
+.tick {
+    fill: var(--uicolor2);
+}
+
+.tick.invert {
+    fill: var(--uicolor1);
+}
+
 .button:hover:active {
-    background: rgba(0, 0, 0, 0.25);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), var(--color2);
+}
+
+.button-boolean:hover:active {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), var(--color1);
+}
+
+.button-boolean.invert:hover:active {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), var(--color2);
 }
 
 .thingy {
@@ -333,7 +384,7 @@ height: 20px;
 
     width: 100%;
 
-    background: #EAD31D;
+    background: var(--color1);
     border-radius: 4px 0px 0px 4px;
     flex: 0px;
 
@@ -348,7 +399,7 @@ height: 20px;
 
     width: 100%;
 
-    background: #EAD31D;
+    background: var(--color1);
     border-radius: 4px 0px 0px 4px;
     flex: 0px;
 
@@ -399,8 +450,13 @@ height: 20px;
     height: 16px;
 }
 
+.toggler.invert {
+    fill: var(--uicolor2);
+    width: 16px;
+    height: 16px;
+}
+
 .toggler.active {
-    fill: var(--color1);
     transform: rotate(-90deg);
 }
 
@@ -428,7 +484,7 @@ height: 20px;
 
     width: 100%;
 
-    background: rgba(0, 0, 0, 0.15);
+    background: var(--color2);
     border-radius: 4px 0px 0px 4px;
 
     /* Inside auto layout */
@@ -448,7 +504,7 @@ height: 20px;
     align-items: flex-start;
     padding: 0px;
 
-    background: rgba(0, 0, 0, 0.15);
+    background: var(--color2);
     border-radius: 4px 0px 0px 4px;
 
     /* Inside auto layout */
@@ -466,7 +522,6 @@ height: 20px;
     align-items: flex-start;
     padding: 0px;
 
-    background: rgba(0, 0, 0, 0.15);
     border-radius: 4px 0px 0px 4px;
 
     /* Inside auto layout */
