@@ -1,4 +1,4 @@
-/*THIS CSS WILL ONLY WORK FOR MOUSE + KEYBOARD*/
+/*THIS CSS WILL ONLY WORK FOR TOUCH DEVICES*/
 
 @import url(settings.css);
 
@@ -34,7 +34,7 @@ body {
 #title {
     box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.25);
 
-    height: 24px;
+    height: 32px;
     left: 10px;
     right: 0px;
     top: 10px;
@@ -55,13 +55,12 @@ body {
 }
 
 .symbol {
-    width: 16px;
-    height: 16px;
-    min-width: 16px;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
 
     background-color: var(--color2);
     fill: var(--uicolor2);
-
     border-radius: 4px;
     box-sizing: border-box;
 
@@ -69,9 +68,9 @@ body {
 }
 
 .symbol.invert {
-    width: 16px;
-    height: 16px;
-    min-width: 16px;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
 
     background-color: var(--color1);
     fill: var(--uicolor1);
@@ -82,23 +81,27 @@ body {
 /* end */
 
 .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    gap: 10px;
+
     width: auto;
     height: 16px;
     left: 0px;
     top: 0px;
 
     background: var(--color2);
+    color: var(--uicolor2);
     border-radius: 4px;
 
     box-sizing: border-box;
 
     transition: outline 0.1s;
-    outline: solid var(--focusColor);
+    outline: solid #ead31d;
     outline-width: 0px;
-}
-
-.box .editable-box {
-    color: var(--uicolor2);
 }
 
 .box.focus {
@@ -111,10 +114,6 @@ body {
     border-radius: 4px;
 
     box-sizing: border-box;
-}
-
-.box.invert .editable-box {
-    color: var(--uicolor1);
 }
 
 .transparent-box {
@@ -157,9 +156,6 @@ body {
 .text-box {
     height: 12px;
 
-    text-align: center;
-    padding: 2px;
-
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -185,7 +181,6 @@ body {
 
 .editable-box {
     height: 12px;
-    padding: 2px;
 
     font-family: 'Roboto';
     font-style: normal;
@@ -196,7 +191,7 @@ body {
 
     display: flex;
     align-items: center;
-    text-align: left;
+    text-align: center;
 
     /* Text Color 1 */
 
@@ -205,30 +200,10 @@ body {
     flex: none;
     order: 0;
     flex-grow: 0;
-
-    background: none;
-    border: none;
-    outline: none;
-    width: 100%;
-    min-width: 5px;
-}
-
-[contenteditable="true"] {
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-[contenteditable="true"] br {
-    display: none !important;
-}
-
-[contenteditable="true"] * {
-    display: inline !important;
-    white-space: nowrap !important;
 }
 
 .editable-box:focus {
-    outline: none;
+    outline: none !important;
 }
 
 object:hover {
@@ -249,24 +224,11 @@ object:hover {
     flex: 0px;
 }
 
-.boolonly {
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-
-    left: 0px;
-    right: 0px;
-    height: 16px;
-
-    display: flex;
-    flex: 0px;
-}
-
 .button {
     box-sizing: border-box;
 
     width: auto;
-    height: 16px;
+    height: 24px;
 
     background: var(--color2);
     box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.5);
@@ -274,7 +236,7 @@ object:hover {
 
     border-width: 0px;
 
-    font-family: 'Source Code Pro', 'Consolas', 'Menlo', sans-serif;
+    font-family: 'Consolas', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -284,18 +246,8 @@ object:hover {
 
     color: var(--uicolor2);
 
-    padding-left: 4px;
-    padding-right: 4px;
-
-    transition: outline 0.1s;
-    outline: solid var(--focusColor);
-    outline-width: 0px;
-
-    border-radius: 4px;
-}
-
-.button:focus:focus-visible {
-    outline-width: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
 .button-boolean {
@@ -312,7 +264,7 @@ object:hover {
 
     border-width: 0px;
 
-    font-family: 'Source Code Pro', 'Consolas', 'Menlo', sans-serif;
+    font-family: 'Consolas', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -323,16 +275,6 @@ object:hover {
     color: var(--uicolor2);
 
     fill: none;
-
-    transition: outline 0.1s;
-    outline: solid var(--focusColor);
-    outline-width: 0px;
-
-    border-radius: 4px;
-}
-
-.button-boolean:focus:focus-visible {
-    outline-width: 2px;
 }
 
 .button-boolean.invert {
@@ -350,8 +292,8 @@ object:hover {
 }
 
 .button-icon {
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
     display: none;
     fill: var(--uicolor2);
 }
@@ -426,22 +368,12 @@ object:hover {
 
 .hidenbuton {
     width: 16px;
-    height: 16px;
+    height: 24px;
 
     border: none;
     background: none;
 
     padding: 0px;
-
-    transition: outline 0.1s;
-    outline: solid var(--focusColor);
-    outline-width: 0px;
-
-    border-radius: 4px;
-}
-
-.hidenbuton:focus:focus-visible {
-    outline-width: 2px;
 }
 
 .rootObject.hide {
@@ -505,7 +437,7 @@ object:hover {
     align-self: stretch;
     flex-grow: 0;
 
-    font-family: 'Source Code Pro', 'Consolas', 'Menlo', sans-serif;
+    font-family: 'Consolas', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -528,7 +460,7 @@ object:hover {
 
     border-width: 0px;
 
-    font-family: 'Source Code Pro', 'Consolas', 'Menlo', sans-serif;
+    font-family: 'Consolas', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -685,7 +617,7 @@ object:hover {
     padding: 4px;
     gap: 4px;
 
-    height: 24px;
+    height: 32px;
 
     box-sizing: border-box;
 }
@@ -695,10 +627,10 @@ object:hover {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding: 4px 4px 4px 24px;
+    padding: 4px 0px 4px 24px;
     gap: 4px;
 
-    height: 24px;
+    height: 32px;
 
     width: 100%;
 
@@ -708,14 +640,14 @@ object:hover {
 .toggler {
     fill: var(--uicolor1);
     width: 16px;
-    height: 16px;
+    height: 24px;
     border-radius: 4px;
 }
 
 .toggler.invert {
     fill: var(--uicolor2);
     width: 16px;
-    height: 16px;
+    height: 24px;
 }
 
 .toggler.active {
@@ -734,7 +666,7 @@ object:hover {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px 0px 2px 20px;
+    padding: 0px 0px 2px 24px;
     gap: 10px;
 
     /* Inside auto layout */
@@ -880,7 +812,7 @@ menuseperator {}
     text-align: center;
 
     transition: outline 0.1s;
-    outline: solid var(--focusColor);
+    outline: solid #ead31d;
     outline-width: 0px;
 }
 
@@ -956,7 +888,7 @@ menuseperator {}
     text-align: center;
 
     transition: outline 0.1s;
-    outline: solid var(--focusColor);
+    outline: solid #ead31d;
     outline-width: 0px;
 }
 

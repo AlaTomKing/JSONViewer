@@ -1,3 +1,5 @@
+"use strict";
+
 /*const toggler = document.querySelectorAll('.toggler')
 const branch = document.querySelectorAll('.branch')
 
@@ -27,18 +29,27 @@ function hearsay(that) {
     that.parentElement.parentElement.classList.toggle('hide', that.classList.toggle('active'))
 }
 
-const everyting = document.querySelector('#everything')
+const everyting = document.querySelector('.everything')
 
 function CreateRoot(name, what) {
     const root = document.createElement('div');
     const title = document.createElement('div');
     const box = document.createElement('div');
-    const edit_box = document.createElement('span');
+    const edit_box = document.createElement('input');
+    const toglebuton = document.createElement('button');
 
     title.classList.add('titlethingyidkwhattocall');
     root.classList.add('rootObject');
     box.classList.add('box');
     edit_box.classList.add('editable-box')
+
+    edit_box.addEventListener('focus', (event) => {
+        box.classList.toggle('focus', true);
+    });
+
+    edit_box.addEventListener('blur', (event) => {
+        box.classList.toggle('focus', false);
+    });
 
     const iconSVG1 = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     const iconPath1 = document.createElementNS(
@@ -52,6 +63,8 @@ function CreateRoot(name, what) {
         'path'
     );
 
+    toglebuton.classList.add('hidenbuton');
+
     iconSVG.classList.add('symbol');
     iconSVG.classList.width = 16;
     iconSVG.classList.height = 16;
@@ -63,10 +76,10 @@ function CreateRoot(name, what) {
     iconSVG1.appendChild(iconPath1);
     iconSVG.appendChild(iconPath);
 
-    iconPath1.setAttribute('d', 'M7.16159 13C7.53422 13.6667 8.46578 13.6667 8.83841 13L13.8689 4C14.2415 3.33333 13.7757 2.5 13.0304 2.5H2.96955C2.2243 2.5 1.75852 3.33333 2.13114 4L7.16159 13Z');
+    iconPath1.setAttribute('d', 'M8.76563 10.2892C8.37713 10.6818 7.74394 10.685 7.35139 10.2965L2.75504 5.7473C2.47767 5.47277 2.67207 5 3.06233 5V5C3.17438 5 3.28214 5.04306 3.36334 5.12027L7.99236 9.52185C8.03133 9.55891 8.09263 9.55851 8.13112 9.52095L12.6346 5.12545C12.717 5.04502 12.8276 5 12.9427 5V5C13.3347 5 13.532 5.4729 13.2563 5.75147L8.76563 10.2892Z');
     iconSVG1.classList.add('toggler');
-    iconSVG1.addEventListener('click', () => {
-        iconSVG1.parentElement.parentElement.classList.toggle('hide', iconSVG1.classList.toggle('active'))
+    toglebuton.addEventListener('click', () => {
+        iconSVG1.parentElement.parentElement.parentElement.classList.toggle('hide', iconSVG1.classList.toggle('active'))
     });
 
     if (what === 'obj') {
@@ -75,14 +88,15 @@ function CreateRoot(name, what) {
         iconPath.setAttribute('d', 'M6.3125 13.4023H3.42383V2.51562H6.3125V3.33594H4.39648V12.582H6.3125V13.4023ZM12.5762 13.4023H9.6875V12.582H11.5918V3.33594H9.6875V2.51562H12.5762V13.4023Z');
     }
 
-    edit_box.setAttribute('contenteditable', 'true');
+    edit_box.setAttribute('type', 'text');
     edit_box.setAttribute('spellcheck', 'false');
 
     everyting.appendChild(root);
-    edit_box.appendChild(document.createTextNode(name));
+    edit_box.value = name;
     box.appendChild(edit_box);
+    toglebuton.appendChild(iconSVG1);
     root.appendChild(title);
-    title.appendChild(iconSVG1);
+    title.appendChild(toglebuton);
     title.appendChild(iconSVG);
     title.appendChild(box);
     //root.style = 'rootObject'
@@ -95,7 +109,12 @@ function CreateBranch(color, parentnode, name, type, value, array, mpty) {
     const title = document.createElement('div');
     const buttonorsometh = document.createElement('div');
     const val = document.createElement('span');
-    const edit_box = document.createElement('span');
+    var edit_box;
+    if (!array) {
+        edit_box = document.createElement('input');
+    } else {
+        edit_box = document.createElement('span');
+    }
     const box = document.createElement('div');
 
     const iconSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -111,16 +130,26 @@ function CreateBranch(color, parentnode, name, type, value, array, mpty) {
     iconSVG.appendChild(iconPath);
 
     branch.classList.add('branch');
-    buttonorsometh.classList.add('buttonsorsomething');
+    buttonorsometh.classList.add('boolonly');
+
+
 
     edit_box.classList.add('editable-box');
 
     if (type === Number) {
         if (!array) {
-            edit_box.appendChild(document.createTextNode(name));
-            edit_box.setAttribute('contenteditable', 'true');
+            edit_box.value = name;
+            edit_box.setAttribute('type', 'text');
             edit_box.setAttribute('spellcheck', 'false');
             box.classList.add('box');
+
+            edit_box.addEventListener('focus', (event) => {
+                box.classList.toggle('focus', true);
+            });
+
+            edit_box.addEventListener('blur', (event) => {
+                box.classList.toggle('focus', false);
+            });
         } else {
             edit_box.appendChild(document.createTextNode(`Number (${name})`));
             box.classList.add('transparent-box');
@@ -136,10 +165,18 @@ function CreateBranch(color, parentnode, name, type, value, array, mpty) {
         val.appendChild(document.createTextNode(value));
     } else if (type === String) {
         if (!array) {
-            edit_box.appendChild(document.createTextNode(name));
-            edit_box.setAttribute('contenteditable', 'true');
+            edit_box.value = name;
+            edit_box.setAttribute('type', 'text'); edit_box.setAttribute('type', 'text');
             edit_box.setAttribute('spellcheck', 'false');
             box.classList.add('box');
+
+            edit_box.addEventListener('focus', (event) => {
+                box.classList.toggle('focus', true);
+            });
+
+            edit_box.addEventListener('blur', (event) => {
+                box.classList.toggle('focus', false);
+            });
         } else {
             edit_box.appendChild(document.createTextNode(`String (${name})`));
             box.classList.add('transparent-box');
@@ -156,12 +193,15 @@ function CreateBranch(color, parentnode, name, type, value, array, mpty) {
     } else if (type === Array) {
         if (!mpty) {
             title.classList.add('titlethingyidkwhattocall');
-            
+
+            const toglebuton = document.createElement('button');
             const iconSVG1 = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
             const iconPath1 = document.createElementNS(
                 'http://www.w3.org/2000/svg',
                 'path'
             );
+
+            toglebuton.classList.add('hidenbuton');
 
             iconSVG1.classList.add('toggler');
             iconSVG1.classList.width = 16;
@@ -169,28 +209,38 @@ function CreateBranch(color, parentnode, name, type, value, array, mpty) {
 
             iconSVG1.appendChild(iconPath1);
 
+            toglebuton.appendChild(iconSVG1);
+
             if (color === 1) {
                 iconSVG1.classList.toggle('invert', false);
             } else if (color === -1) {
                 iconSVG1.classList.toggle('invert', true);
             }
 
-            iconPath1.setAttribute('d', 'M7.16159 13C7.53422 13.6667 8.46578 13.6667 8.83841 13L13.8689 4C14.2415 3.33333 13.7757 2.5 13.0304 2.5H2.96955C2.2243 2.5 1.75852 3.33333 2.13114 4L7.16159 13Z');
+            iconPath1.setAttribute('d', 'M8.76563 10.2892C8.37713 10.6818 7.74394 10.685 7.35139 10.2965L2.75504 5.7473C2.47767 5.47277 2.67207 5 3.06233 5V5C3.17438 5 3.28214 5.04306 3.36334 5.12027L7.99236 9.52185C8.03133 9.55891 8.09263 9.55851 8.13112 9.52095L12.6346 5.12545C12.717 5.04502 12.8276 5 12.9427 5V5C13.3347 5 13.532 5.4729 13.2563 5.75147L8.76563 10.2892Z');
             iconSVG1.classList.add('toggler');
-            iconSVG1.addEventListener('click', () => {
-                iconSVG1.parentElement.parentElement.classList.toggle('hide', iconSVG1.classList.toggle('active'))
+            toglebuton.addEventListener('click', () => {
+                iconSVG1.parentElement.parentElement.parentElement.classList.toggle('hide', iconSVG1.classList.toggle('active'))
             });
 
-            title.appendChild(iconSVG1);
+            title.appendChild(toglebuton);
         } else {
             title.classList.add('variablethingyidkwhattocall');
         }
 
         if (!array) {
-            edit_box.appendChild(document.createTextNode(name));
-            edit_box.setAttribute('contenteditable', 'true');
+            edit_box.value = name;
+            edit_box.setAttribute('type', 'text'); edit_box.setAttribute('type', 'text');
             edit_box.setAttribute('spellcheck', 'false');
             box.classList.add('box');
+
+            edit_box.addEventListener('focus', (event) => {
+                box.classList.toggle('focus', true);
+            });
+
+            edit_box.addEventListener('blur', (event) => {
+                box.classList.toggle('focus', false);
+            });
         } else {
             edit_box.appendChild(document.createTextNode(`Array (${name})`));
             box.classList.add('transparent-box');
@@ -201,20 +251,24 @@ function CreateBranch(color, parentnode, name, type, value, array, mpty) {
     } else if (type === Object) {
         if (!mpty) {
             title.classList.add('titlethingyidkwhattocall');
-            
+
+            const toglebuton = document.createElement('button');
             const iconSVG1 = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
             const iconPath1 = document.createElementNS(
                 'http://www.w3.org/2000/svg',
                 'path'
             );
 
+            toglebuton.classList.add('hidenbuton');
+
             iconSVG1.classList.add('toggler');
             iconSVG1.classList.width = 16;
             iconSVG1.classList.height = 16;
 
             iconSVG1.appendChild(iconPath1);
+            toglebuton.appendChild(iconSVG1);
 
-            iconPath1.setAttribute('d', 'M7.16159 13C7.53422 13.6667 8.46578 13.6667 8.83841 13L13.8689 4C14.2415 3.33333 13.7757 2.5 13.0304 2.5H2.96955C2.2243 2.5 1.75852 3.33333 2.13114 4L7.16159 13Z');
+            iconPath1.setAttribute('d', 'M8.76563 10.2892C8.37713 10.6818 7.74394 10.685 7.35139 10.2965L2.75504 5.7473C2.47767 5.47277 2.67207 5 3.06233 5V5C3.17438 5 3.28214 5.04306 3.36334 5.12027L7.99236 9.52185C8.03133 9.55891 8.09263 9.55851 8.13112 9.52095L12.6346 5.12545C12.717 5.04502 12.8276 5 12.9427 5V5C13.3347 5 13.532 5.4729 13.2563 5.75147L8.76563 10.2892Z');
 
             if (color === 1) {
                 iconSVG1.classList.toggle('invert', false);
@@ -223,20 +277,32 @@ function CreateBranch(color, parentnode, name, type, value, array, mpty) {
             }
 
             iconSVG1.classList.add('toggler');
-            iconSVG1.addEventListener('click', () => {
-                iconSVG1.parentElement.parentElement.classList.toggle('hide', iconSVG1.classList.toggle('active'))
+            toglebuton.addEventListener('click', () => {
+                toglebuton.parentElement.parentElement.classList.toggle('hide', iconSVG1.classList.toggle('active'));
             });
 
-            title.appendChild(iconSVG1);
+            toglebuton.addEventListener('mousepress', () => {
+                toglebuton.blur();
+            })
+
+            title.appendChild(toglebuton);
         } else {
             title.classList.add('variablethingyidkwhattocall');
         }
 
         if (!array) {
-            edit_box.appendChild(document.createTextNode(name));
-            edit_box.setAttribute('contenteditable', 'true');
+            edit_box.value = name;
+            edit_box.setAttribute('type', 'text'); edit_box.setAttribute('type', 'text');
             edit_box.setAttribute('spellcheck', 'false');
             box.classList.add('box');
+
+            edit_box.addEventListener('focus', (event) => {
+                box.classList.toggle('focus', true);
+            });
+
+            edit_box.addEventListener('blur', (event) => {
+                box.classList.toggle('focus', false);
+            });
         } else {
             edit_box.appendChild(document.createTextNode(`Object (${name})`));
             box.classList.add('transparent-box');
@@ -247,20 +313,49 @@ function CreateBranch(color, parentnode, name, type, value, array, mpty) {
     } else if (type === Boolean) {
         const button = document.createElement('button');
         button.classList.add('button-boolean');
+
+        const buttonsvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        const buttonsvgpath = document.createElementNS(
+            'http://www.w3.org/2000/svg',
+            'path'
+        );
+
+        buttonsvgpath.setAttribute('d', 'M12.727 2.374a.697.697 0 0 0-.183.14c-.038.046-1.124 2.192-2.413 4.771a453.14 453.14 0 0 1-2.361 4.688c-.009 0-.998-.785-2.197-1.744-1.2-.96-2.233-1.778-2.297-1.819-.248-.156-.526-.102-.746.146-.232.26-.273.53-.114.758.101.147 4.73 3.857 4.928 3.95.317.15.66.145.996-.014.367-.175.166.191 2.872-5.221 1.76-3.52 2.442-4.909 2.456-5 .038-.256-.099-.469-.394-.613-.206-.101-.401-.116-.547-.042');
+
+        button.addEventListener('click', () => {
+            buttonsvg.classList.toggle('toggle');
+        })
+
+        buttonsvg.classList.toggle('toggle', value);
+
+        buttonsvg.classList.add('button-icon');
+
+        buttonsvg.appendChild(buttonsvgpath);
+
+        button.appendChild(buttonsvg);
+
         if (!array) {
-            edit_box.appendChild(document.createTextNode(name));
-            edit_box.setAttribute('contenteditable', 'true');
+            edit_box.value = name;
+            edit_box.setAttribute('type', 'text'); edit_box.setAttribute('type', 'text');
             edit_box.setAttribute('spellcheck', 'false');
             box.classList.add('box');
+
+            edit_box.addEventListener('focus', (event) => {
+                box.classList.toggle('focus', true);
+            });
+
+            edit_box.addEventListener('blur', (event) => {
+                box.classList.toggle('focus', false);
+            });
         } else {
             edit_box.appendChild(document.createTextNode(`Boolean (${name})`));
             box.classList.add('transparent-box');
         }
 
         if (color === 1) {
-            button.classList.toggle('invert', true);
-        } else if (color === -1) {
             button.classList.toggle('invert', false);
+        } else if (color === -1) {
+            button.classList.toggle('invert', true);
         }
 
         iconPath.setAttribute('d', 'M4.78003 7.5874C4.78003 7.83805 4.74422 8.05469 4.67261 8.2373C4.60278 8.41992 4.50431 8.5721 4.3772 8.69385C4.25187 8.8138 4.10327 8.90332 3.9314 8.9624C3.75952 9.01969 3.57243 9.04834 3.37012 9.04834C3.17139 9.04834 2.98608 9.03312 2.81421 9.00269C2.64412 8.97404 2.4812 8.93465 2.32544 8.88452V5.20532H2.98071V6.09692L2.95386 6.63403C3.05233 6.50692 3.16691 6.40487 3.29761 6.32788C3.43009 6.2509 3.58854 6.2124 3.77295 6.2124C3.93408 6.2124 4.07731 6.24463 4.20264 6.30908C4.32796 6.37354 4.4327 6.46574 4.51685 6.58569C4.60278 6.70386 4.66813 6.84798 4.71289 7.01807C4.75765 7.18636 4.78003 7.37614 4.78003 7.5874ZM4.09253 7.61426C4.09253 7.46387 4.08179 7.33586 4.0603 7.23022C4.03882 7.12459 4.00749 7.03776 3.96631 6.96973C3.92692 6.90169 3.87769 6.85246 3.8186 6.82202C3.76131 6.78979 3.69507 6.77368 3.61987 6.77368C3.50887 6.77368 3.40234 6.81844 3.30029 6.90796C3.20003 6.99748 3.09351 7.11922 2.98071 7.27319V8.46558C3.03263 8.48527 3.09619 8.50138 3.17139 8.51392C3.24837 8.52645 3.32625 8.53271 3.40503 8.53271C3.50887 8.53271 3.60286 8.51123 3.68701 8.46826C3.77295 8.42529 3.84546 8.36442 3.90454 8.28564C3.96541 8.20687 4.01196 8.11108 4.04419 7.99829C4.07642 7.88371 4.09253 7.7557 4.09253 7.61426ZM7.80664 7.61426C7.80664 7.8291 7.7762 8.02604 7.71533 8.20508C7.65446 8.38232 7.56673 8.53451 7.45215 8.66162C7.33757 8.78874 7.19702 8.88721 7.03052 8.95703C6.86401 9.02686 6.67424 9.06177 6.46118 9.06177C6.25887 9.06177 6.07804 9.03223 5.9187 8.97314C5.75936 8.91406 5.62419 8.82633 5.51318 8.70996C5.40218 8.5918 5.31714 8.44499 5.25806 8.26953C5.19897 8.09229 5.16943 7.88639 5.16943 7.65186C5.16943 7.43522 5.19987 7.23828 5.26074 7.06104C5.3234 6.88379 5.41203 6.7325 5.52661 6.60718C5.64299 6.48185 5.78442 6.38517 5.95093 6.31714C6.11743 6.24731 6.30542 6.2124 6.51489 6.2124C6.71899 6.2124 6.90072 6.24284 7.06006 6.30371C7.2194 6.36279 7.35457 6.45142 7.46558 6.56958C7.57658 6.68774 7.66073 6.83455 7.71802 7.01001C7.7771 7.18368 7.80664 7.38509 7.80664 7.61426ZM7.12451 7.63037C7.12451 7.34749 7.0708 7.13534 6.96338 6.9939C6.85775 6.85067 6.70109 6.77905 6.49341 6.77905C6.37882 6.77905 6.28125 6.80143 6.20068 6.84619C6.12012 6.89095 6.05387 6.95272 6.00195 7.03149C5.95003 7.10848 5.91154 7.19889 5.88647 7.30273C5.8632 7.40658 5.85156 7.51758 5.85156 7.63574C5.85156 7.92041 5.90885 8.13525 6.02344 8.28027C6.13802 8.4235 6.29468 8.49512 6.49341 8.49512C6.60262 8.49512 6.69751 8.47363 6.77808 8.43066C6.85864 8.3859 6.92399 8.32503 6.97412 8.24805C7.02425 8.16927 7.06185 8.07707 7.08691 7.97144C7.11198 7.8658 7.12451 7.75212 7.12451 7.63037ZM10.8306 7.61426C10.8306 7.8291 10.8001 8.02604 10.7393 8.20508C10.6784 8.38232 10.5907 8.53451 10.4761 8.66162C10.3615 8.78874 10.2209 8.88721 10.0544 8.95703C9.88794 9.02686 9.69816 9.06177 9.48511 9.06177C9.2828 9.06177 9.10197 9.03223 8.94263 8.97314C8.78328 8.91406 8.64811 8.82633 8.53711 8.70996C8.42611 8.5918 8.34106 8.44499 8.28198 8.26953C8.2229 8.09229 8.19336 7.88639 8.19336 7.65186C8.19336 7.43522 8.2238 7.23828 8.28467 7.06104C8.34733 6.88379 8.43595 6.7325 8.55054 6.60718C8.66691 6.48185 8.80835 6.38517 8.97485 6.31714C9.14136 6.24731 9.32935 6.2124 9.53882 6.2124C9.74292 6.2124 9.92464 6.24284 10.084 6.30371C10.2433 6.36279 10.3785 6.45142 10.4895 6.56958C10.6005 6.68774 10.6847 6.83455 10.7419 7.01001C10.801 7.18368 10.8306 7.38509 10.8306 7.61426ZM10.1484 7.63037C10.1484 7.34749 10.0947 7.13534 9.9873 6.9939C9.88167 6.85067 9.72502 6.77905 9.51733 6.77905C9.40275 6.77905 9.30518 6.80143 9.22461 6.84619C9.14404 6.89095 9.0778 6.95272 9.02588 7.03149C8.97396 7.10848 8.93547 7.19889 8.9104 7.30273C8.88713 7.40658 8.87549 7.51758 8.87549 7.63574C8.87549 7.92041 8.93278 8.13525 9.04736 8.28027C9.16195 8.4235 9.3186 8.49512 9.51733 8.49512C9.62655 8.49512 9.72144 8.47363 9.802 8.43066C9.88257 8.3859 9.94792 8.32503 9.99805 8.24805C10.0482 8.16927 10.0858 8.07707 10.1108 7.97144C10.1359 7.8658 10.1484 7.75212 10.1484 7.63037ZM12.2781 5.71558H11.5073V5.20532H12.9495V8.48975H13.7363V9H11.4133V8.48975H12.2781V5.71558Z');
@@ -275,10 +370,18 @@ function CreateBranch(color, parentnode, name, type, value, array, mpty) {
         object.classList.add('Boolean');
     } else if (type === 0) {
         if (!array) {
-            edit_box.appendChild(document.createTextNode(name));
-            edit_box.setAttribute('contenteditable', 'true');
+            edit_box.value = name;
+            edit_box.setAttribute('type', 'text'); edit_box.setAttribute('type', 'text');
             edit_box.setAttribute('spellcheck', 'false');
             box.classList.add('box');
+
+            edit_box.addEventListener('focus', (event) => {
+                box.classList.toggle('focus', true);
+            });
+
+            edit_box.addEventListener('blur', (event) => {
+                box.classList.toggle('focus', false);
+            });
         } else {
             edit_box.appendChild(document.createTextNode(`Null (${name})`));
             box.classList.add('transparent-box');
@@ -329,7 +432,7 @@ function GoofyAhhUncleProductions(parse, parent, numba, array) {
 
         if (typeof parse[key] == 'boolean') {
             CreateBranch(numba, parent, key, Boolean, parse[key], array);
-        } else if (!parse[key]) {
+        } else if (parse[key] == undefined) {
             CreateBranch(numba, parent, key, 0, parse[key], array);
         } else if (parse[key] instanceof Array) {
             if (GoofyAhhDrake(parse[key]) === 0) {
@@ -361,7 +464,7 @@ function e333kxxx033k(ar, parent, numba, array) {
         //if (ar.hasOwnProperty(key1)) {
         if (typeof ar[key1] == 'boolean') {
             CreateBranch(numba, parent, key1, Boolean, ar[key1], array);
-        } else if (!ar[key1]) {
+        } else if (ar[key1] == undefined) {
             CreateBranch(numba, parent, key1, 0, ar[key1], array);
         } else if (ar[key1] instanceof Array) {
             if (GoofyAhhDrake(ar[key1]) === 0) {
@@ -388,6 +491,16 @@ function e333kxxx033k(ar, parent, numba, array) {
     }
 }
 
+function PromptImport() {
+    const blurthingy = document.querySelector('.everything');
+    const promptwindow = document.querySelector('.promptwindow');
+    const importwindow = document.querySelector('.importwindow');
+
+    blurthingy.classList.toggle('blur', true)
+    promptwindow.classList.toggle('hidden', false)
+    importwindow.classList.toggle('hidden', false)
+}
+
 function ImportFile() {
     let input = document.createElement('input');
     input.setAttribute('multiple', 'multiple');
@@ -404,9 +517,10 @@ function ImportFile() {
 
             reader.addEventListener('load', () => {
                 var parent;
-                console.log(reader.result);
+                //                console.log(reader.result);
 
                 const parse = JSON.parse(reader.result);
+                console.log(parse)
                 /*JSON.parse(reader.result, (key, value) => {
                     console.log(key, value);
                     console.log(typeof value)

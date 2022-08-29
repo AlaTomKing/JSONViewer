@@ -13,5 +13,13 @@
             }
         }
     },
-    "yes?": false
+    "yes?": false,
+    "all values": {
+        "string": "sample string",
+        "number": 12,
+        "object": {},
+        "array": [],
+        "bool": true,
+        "null": null
+    }
 }

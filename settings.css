@@ -1,0 +1,21 @@
+:root {
+    /*--color1: #f7df1e;
+    --color2: #dbc619;
+        
+    --uicolor1: #000000;
+    --uicolor2: #000000;
+    */
+
+    --color1: #333;
+    --color2: rgba(0, 0, 0, 0.15);
+
+    --uicolor1: #eee;
+    --uicolor2: #eee;
+
+    --backgroundColor: #222222;
+
+    --selectionColor: #ead31d;
+    --selectionTextColor: #000;
+
+    --focusColor: #ead31d;
+}

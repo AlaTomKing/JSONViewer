@@ -1,0 +1,41 @@
+{
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.formatOnSave": true,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "synthwave84.brightness": 1,
+    "[bat]": {},
+    "workbench.editorAssociations": {
+        "*.exe": "default"
+    },
+    "terminal.integrated.gpuAcceleration": "off",
+    "vscode_vibrancy.opacity": 0,
+    "vscode_vibrancy.type": "acrylic",
+    "editor.formatOnPaste": true,
+    "security.workspace.trust.banner": "always",
+    "security.workspace.trust.startupPrompt": "always",
+    "security.workspace.trust.untrustedFiles": "open",
+    "explorer.confirmDelete": false,
+    "files.autoSave": "afterDelay",
+    "explorer.confirmDragAndDrop": false,
+    "makefile.buildLog": "",
+    "makefile.makefilePath": "C:\\Users\\zhico\\Downloads\\lua-5.4.4\\Makefile",
+    "editor.formatOnType": true,
+    "workbench.colorTheme": "Visual Studio 2019 Dark",
+    "vscode-edge-devtools.fallbackRevision": "@a41122be052fe9616f0def5fe6842fa942930d46",
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "workbench.colorCustomizations": {
+        "editorBracketHighlight.foreground1": "#fdd73a",
+        "editorBracketHighlight.foreground2": "#d574d3",
+        "editorBracketHighlight.foreground3": "#2e9efa",
+        "editorBracketHighlight.foreground4": "#3ce065",
+        "editorBracketHighlight.foreground5": "#f25252",
+        "editorBracketHighlight.foreground6": "#2ecefa"
+    }
+}
